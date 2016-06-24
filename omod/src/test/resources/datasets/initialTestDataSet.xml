@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<dataset>
+    <encounter encounter_id="5" encounter_type="7" patient_id="2" location_id="1" encounter_datetime="2016-01-17 00:00:00.0" date_created="2016-01-15 00:00:00.0" creator="501" uuid="d2cafaa0-d63c-11e5-9fec-0800274a5156"/>
+
+    <concept concept_id="100" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9100"/>
+    <concept_name concept_name_id="200" concept_id="100" name="TUBERCULOSIS DRUG TREATMENT START DATE" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9200"/>
+    <concept concept_id="101" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9101"/>
+    <concept_name concept_name_id="201" concept_id="101" name="MTC, Overall DOT Rate" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9201"/>
+    <concept concept_id="102" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9102"/>
+    <concept_name concept_name_id="202" concept_id="102" name="MTC, Adherence rate" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9202"/>
+    <concept concept_id="103" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9103"/>
+    <concept_name concept_name_id="203" concept_id="103" name="MTC, Completeness rate" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9203"/>
+    <concept concept_id="104" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9104"/>
+    <concept_name concept_name_id="204" concept_id="104" name="Baseline, Drug resistance" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9204"/>
+    <concept concept_id="105" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9105"/>
+    <concept_name concept_name_id="205" concept_id="105" name="Baseline, Subclassification for confimed drug resistant cases" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9205"/>
+    <concept concept_id="106" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9106"/>
+    <concept_name concept_name_id="206" concept_id="106" name="EOT, Outcome" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9206"/>
+    <concept concept_id="107" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9107"/>
+    <concept_name concept_name_id="207" concept_id="107" name="Tuberculosis treatment end date" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9207"/>
+    <concept concept_id="108" retired="0" datatype_id="4" class_id="3" is_set="0" creator="1" date_created="2016-08-12 00:00:00.0" version="" uuid="8e02d1a0-7869-11e3-981f-0800123c9108"/>
+    <concept_name concept_name_id="208" concept_id="108" name="EOT, End of Treatment Outcome date" locale="en" creator="1" date_created="2008-08-15 13:52:53.0" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="0" uuid="93f24a00-7869-11e3-123f-0800200c9208"/>
+
+
+
+
+</dataset>
