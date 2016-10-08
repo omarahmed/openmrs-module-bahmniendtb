@@ -35,20 +35,20 @@ public class TreatmentEndDateHandlerTest {
     }
 
     @Test
-    public void shouldReturnNullIfTreatmentStartDateNotPresent() {
-        when(obsDao.getObsByPatientProgramUuidAndConceptNames(patientProgramUuid, Arrays.asList(EndTBConstants.TI_START_DATE), null, null, null,null)).thenReturn(null);
+    public void shouldReturnNullIfTreatmentEndDateNotPresent() {
+        when(obsDao.getObsByPatientProgramUuidAndConceptNames(patientProgramUuid, Arrays.asList(EndTBConstants.EOT_STOP_DATE), null, null, null,null)).thenReturn(null);
 
         Date actualTreatmentStartDate = treatmentEndDateHandler.getDate(patientProgram);
         assertNull(actualTreatmentStartDate);
     }
 
     @Test
-    public void shouldReturnDateWhenTreatmentStartDateIsPresentForPatientProgram() {
+    public void shouldReturnDateWhenTreatmentEndDateIsPresentForPatientProgram() {
         Date today = new Date();
         Obs obs = new Obs();
         obs.setValueDate(today);
 
-        when(obsDao.getObsByPatientProgramUuidAndConceptNames(patientProgramUuid, Arrays.asList(EndTBConstants.TI_START_DATE), null, null, null,null)).thenReturn(Arrays.asList(obs));
+        when(obsDao.getObsByPatientProgramUuidAndConceptNames(patientProgramUuid, Arrays.asList(EndTBConstants.EOT_STOP_DATE), null, null, null,null)).thenReturn(Arrays.asList(obs));
 
         Date actualTreatmentStartDate = treatmentEndDateHandler.getDate(patientProgram);
 

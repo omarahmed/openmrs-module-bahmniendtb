@@ -2,60 +2,117 @@
   "milestones": [
     {
       "name": "M1",
-      "min": 0,
-      "max": 30,
-      "entities": {
-        "clinical": {
-          "singleConcepts": [
-            "Baseline, Prison"
+      "config": {
+        "min": 0,
+        "max": 30
+      },
+      "questions": [
+        {
+          "name": "Blood Pressure",
+          "concepts": [
+            "Systolic",
+            "Diastolic"
           ],
-          "groupConcepts": {}
-        },
-        "bacteriology": {
-          "singleConcepts": [
-            "Bacteriology, Fluoroquinolone"
-          ],
-          "groupConcepts": {}
-        },
-        "drugs": {
-          "singleConcepts": [
-            "Isoniazid"
-          ],
-          "groupConcepts": {}
+          "type": "Obs"
         }
-      }
+      ]
     },
     {
       "name": "M2",
-      "min": 31,
-      "max": 60
+      "config": {
+        "min": 31,
+        "max": 60
+      },
+      "questions": [
+        {
+          "name": "Blood Pressure",
+          "concepts": [
+            "Systolic",
+            "Diastolic"
+          ],
+          "type": "Obs"
+        },
+        {
+          "name": "New Drugs",
+          "concepts": [
+            "Bedaquiline",
+            "Delamanid"
+          ],
+          "type": "Drug"
+        }
+      ]
     },
     {
       "name": "M3",
-      "min": 61,
-      "max": 90
+      "config": {
+        "min": 61,
+        "max": 90
+      },
+      "questions": [
+        {
+          "name": "Blood Pressure",
+          "concepts": [
+            "Systolic",
+            "Diastolic"
+          ],
+          "type": "Obs"
+        },
+        {
+          "name": "New Drugs",
+          "concepts": [
+            "Bedaquiline",
+            "Delamanid"
+          ],
+          "type": "Drug"
+        }
+      ]
+    },
+    {
+      "name": "M4",
+      "config": {
+        "min": 91,
+        "max": 120
+      },
+      "questions": [
+        {
+          "name": "Blood Pressure",
+          "concepts": [
+            "Systolic",
+            "Diastolic"
+          ],
+          "type": "Obs"
+        },
+        {
+          "name": "New Drugs",
+          "concepts": [
+            "Bedaquiline",
+            "Delamanid"
+          ],
+          "type": "Drug"
+        }
+      ]
+    },
+    {
+      "name": "MTx",
+      "config": {
+        "min": -15,
+        "max": 15
+      },
+      "handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
+      "questions": [
+        {
+          "name": "New Drugs",
+          "concepts": [
+            "Bedaquiline",
+            "Delamanid"
+          ],
+          "type": "Drug"
+        }
+      ]
     }
   ],
-  "entities": {
-    "clinical": {
-      "singleConcepts": [
-        "Height (cm)",
-        "Weight (kg)"
-      ],
-      "groupConcepts": {}
-    },
-    "bacteriology": {
-      "singleConcepts": [
-        "Bacteriology, Culture results"
-      ],
-      "groupConcepts": {}
-    },
-    "drugs": {
-      "singleConcepts": [
-        "Delamanid"
-      ],
-      "groupConcepts": {}
-    }
-  },
-  "startDateConcept": "TUBERCULOSIS DRUG TREATMENT START DATE"
+  "order": {
+  "2" : "Blood Pressure",
+  "1" : "New Drugs"
+  }
 }

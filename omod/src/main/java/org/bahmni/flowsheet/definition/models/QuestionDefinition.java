@@ -1,30 +1,23 @@
 package org.bahmni.flowsheet.definition.models;
 
-import org.bahmni.flowsheet.api.Question;
+import org.bahmni.flowsheet.api.models.Question;
+import org.bahmni.flowsheet.api.Evaluator;
 import org.openmrs.Concept;
 
+import java.util.List;
 import java.util.Set;
 
 public class QuestionDefinition {
-    private Integer questionId;
     private String name;
     private Set<Concept> concepts;
     private String questionType;
 
-    public QuestionDefinition(Integer questionId, String name, Set<Concept> concepts, String questionType) {
-        this.questionId = questionId;
+    public QuestionDefinition( String name, Set<Concept> concepts, String questionType) {
         this.name = name;
         this.concepts = concepts;
         this.questionType = questionType;
     }
 
-    public Integer getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(Integer questionId) {
-        this.questionId = questionId;
-    }
 
     public String getName() {
         return name;
@@ -50,11 +43,19 @@ public class QuestionDefinition {
         this.questionType = questionType;
     }
 
-    public Question createQuestion() {
+    public Question createQuestion(List<Evaluator> evaluatorList) {
+        return new Question(name, concepts, getEvaluatorFromList(evaluatorList));
+    }
 
-        if (this.questionType.equals("Drug")) {
-            return new DrugQuestion(questionId, name, concepts, null);
+    private Evaluator getEvaluatorFromList(List<Evaluator> evaluatorList) {
+        if(evaluatorList == null ||evaluatorList.isEmpty()){
+            return null;
         }
-        return new ObsQuestion(questionId, name, concepts, null);
+        for (Evaluator evaluator : evaluatorList) {
+            if(this.questionType.equals(evaluator.getType())) {
+                return evaluator;
+            }
+        }
+        return null;
     }
 }

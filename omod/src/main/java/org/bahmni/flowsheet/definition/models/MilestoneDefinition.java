@@ -2,22 +2,19 @@ package org.bahmni.flowsheet.definition.models;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
+import org.bahmni.flowsheet.api.Evaluator;
 import org.bahmni.flowsheet.definition.HandlerProvider;
-import org.bahmni.flowsheet.api.Milestone;
-import org.bahmni.flowsheet.api.Question;
+import org.bahmni.flowsheet.api.models.Milestone;
+import org.bahmni.flowsheet.api.models.Question;
 import org.openmrs.PatientProgram;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-@Component
-@Scope("prototype")
+
 public class MilestoneDefinition {
 
     private String name;
@@ -25,11 +22,15 @@ public class MilestoneDefinition {
     private String handler;
     private Set<QuestionDefinition> questionDefinitions;
     private HandlerProvider handlerProvider;
+    private List<Evaluator> evaluatorList;
 
-    @Autowired
-    public MilestoneDefinition(HandlerProvider handlerProvider) {
 
+    public MilestoneDefinition(String name, Map<String, String> config, String handler, HandlerProvider handlerProvider, List<Evaluator> evaluatorList) {
+        this.name = name;
+        this.handler = handler;
+        this.config = config;
         this.handlerProvider = handlerProvider;
+        this.evaluatorList = evaluatorList;
     }
 
     public String getName() {
@@ -76,12 +77,16 @@ public class MilestoneDefinition {
         Milestone milestone = new Milestone();
         if(StringUtils.isNotEmpty(this.handler)) {
             startDate = handlerProvider.getHandler(this.handler).getDate(patientProgram);
+            if(startDate == null) {
+                return null;
+            }
         }
+        milestone.setName(name);
         milestone.setStartDate(DateUtils.addDays(startDate, Integer.parseInt(config.get("min"))));
         milestone.setEndDate(DateUtils.addDays(startDate, Integer.parseInt(config.get("max"))));
         Set<Question> questions = new LinkedHashSet<>();
         for(QuestionDefinition questionDefinition : this.questionDefinitions) {
-            questions.add(questionDefinition.createQuestion());
+            questions.add(questionDefinition.createQuestion(evaluatorList));
         }
         milestone.setQuestions(questions);
         return milestone;

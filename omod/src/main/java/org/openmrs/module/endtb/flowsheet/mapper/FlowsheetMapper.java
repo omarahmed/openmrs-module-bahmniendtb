@@ -5,7 +5,7 @@ import org.bahmni.module.bahmnicore.service.BahmniConceptService;
 import org.openmrs.ConceptName;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.endtb.flowsheet.constants.ColourCode;
-import org.openmrs.module.endtb.flowsheet.models.Flowsheet;
+import org.bahmni.flowsheet.ui.FlowsheetUI;
 import org.openmrs.module.endtb.flowsheet.models.FlowsheetConcept;
 import org.openmrs.module.endtb.flowsheet.models.FlowsheetConfig;
 import org.openmrs.module.endtb.flowsheet.models.FlowsheetEntities;
@@ -25,7 +25,7 @@ import java.util.Set;
 public abstract class FlowsheetMapper {
 
     protected FlowsheetConfig flowsheetConfig;
-    protected Flowsheet flowsheet;
+    protected FlowsheetUI flowsheet;
     protected String patientUuid;
     protected String patientProgramUuid;
     protected String[] conceptTypes;
@@ -36,7 +36,7 @@ public abstract class FlowsheetMapper {
 
     protected abstract void createFlowSheet() throws ParseException;
 
-    public void map(Flowsheet flowsheet, FlowsheetConfig flowsheetConfig, String patientUuid, String patientProgramUuid, Date startDate, Date endDate) throws ParseException {
+    public void map(FlowsheetUI flowsheet, FlowsheetConfig flowsheetConfig, String patientUuid, String patientProgramUuid, Date startDate, Date endDate) throws ParseException {
         this.flowsheet = flowsheet;
         this.flowsheetConfig = flowsheetConfig;
         this.patientUuid = patientUuid;

@@ -1,14 +1,13 @@
-package org.openmrs.module.endtb.flowsheet.models;
+package org.bahmni.flowsheet.ui;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Flowsheet {
+public class FlowsheetUI {
 
     private Set<String> flowsheetHeader;
     private Map<String, List<String>> flowsheetData;
@@ -45,7 +44,7 @@ public class Flowsheet {
         this.highlightedMilestone = highlightedMilestone;
     }
 
-    public Flowsheet addFlowSheetHeader(String header) {
+    public FlowsheetUI addFlowSheetHeader(String header) {
         getFlowsheetHeader().add(header);
         return this;
     }
@@ -62,7 +61,7 @@ public class Flowsheet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Flowsheet flowsheet = (Flowsheet) o;
+        FlowsheetUI flowsheet = (FlowsheetUI) o;
 
         if (!getFlowsheetHeader().equals(flowsheet.getFlowsheetHeader())) return false;
         return getFlowsheetData().equals(flowsheet.getFlowsheetData());

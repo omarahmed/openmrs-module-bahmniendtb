@@ -1,14 +1,15 @@
 package org.bahmni.flowsheet.api.models;
 
-import org.bahmni.flowsheet.api.Flowsheet;
-import org.bahmni.flowsheet.api.Milestone;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.openmrs.PatientProgram;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -16,7 +17,13 @@ import static org.mockito.MockitoAnnotations.initMocks;
 public class FlowsheetTest {
 
     @Mock
-    Milestone milestone;
+    Milestone baseline;
+
+    @Mock
+    Milestone endOfTreatment;
+
+    @Mock
+    PatientProgram patientProgram;
 
 
     @Before
@@ -27,10 +34,12 @@ public class FlowsheetTest {
     @Test
     public void shouldEvaluateItself() {
         Flowsheet flowsheet = new Flowsheet();
-        flowsheet.setMilestones(new LinkedHashSet<>(Arrays.asList(milestone)));
 
-        flowsheet.evaluate();
+        flowsheet.setMilestones(new LinkedHashSet<>(Arrays.asList(baseline, endOfTreatment)));
 
-        verify(milestone).evaluate();
+        flowsheet.evaluate(patientProgram);
+
+        verify(baseline).evaluate(patientProgram);
+        verify(endOfTreatment).evaluate(patientProgram);
     }
 }

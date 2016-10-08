@@ -1,10 +1,15 @@
 package org.openmrs.module.endtb.flowsheet.constants;
 
 public class FlowsheetConstant {
+
+
+
     private FlowsheetConstant() {
     }
 
     public static final String MILESTONES = "milestones";
+    public static final String CONCEPTS = "concepts";
+    public static final String TYPE = "type";
     public static final String NAME = "name";
     public static final String MIN = "min";
     public static final String MAX = "max";
@@ -17,4 +22,8 @@ public class FlowsheetConstant {
     public static final String START_DATE_CONCEPT = "startDateConcept";
     public static final String START_DATE_DRUG_CONCEPTS = "startDateDrugConcepts";
     public static final String END_DATE_CONCEPT = "endDateConcept";
+    public static final String HANDLER = "handler" ;
+    public static final String QUESTIONS = "questions";
+    public static final String CONFIG = "config";
+    public static final String ORDER = "order";
 }

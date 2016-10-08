@@ -1,4 +1,6 @@
-package org.bahmni.flowsheet.api;
+package org.bahmni.flowsheet.api.models;
+
+import org.openmrs.PatientProgram;
 
 import java.util.Date;
 import java.util.Set;
@@ -7,7 +9,6 @@ public class Flowsheet {
 
     private Date startDate;
     private Set<Milestone> milestones;
-    private Set<Question> questions;
 
     public Date getStartDate() {
         return startDate;
@@ -25,17 +26,12 @@ public class Flowsheet {
         this.milestones = milestones;
     }
 
-    public Set<Question> getQuestions() {
-        return questions;
-    }
 
-    public void setQuestions(Set<Question> questions) {
-        this.questions = questions;
-    }
 
-    public void evaluate() {
+
+    public void evaluate(PatientProgram patientProgram) {
         for (Milestone milestone : milestones) {
-            milestone.evaluate();
+             milestone.evaluate(patientProgram);
         }
 
     }

@@ -2,7 +2,7 @@ package org.bahmni.flowsheet.definition.models;
 
 import org.bahmni.flowsheet.definition.Handler;
 import org.bahmni.flowsheet.definition.HandlerProvider;
-import org.bahmni.flowsheet.api.Milestone;
+import org.bahmni.flowsheet.api.models.Milestone;
 import org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +48,7 @@ public class MilestoneDefinitionTest {
     @Before
     public void setUp() throws ParseException {
         initMocks(this);
-        QuestionDefinition questionDefinition = new QuestionDefinition(1, "Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
+        QuestionDefinition questionDefinition = new QuestionDefinition("Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
         Map<String, String> config = new HashMap<>();
         config.put("min", "0");
         config.put("max", "30");

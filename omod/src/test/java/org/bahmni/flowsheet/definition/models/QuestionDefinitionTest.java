@@ -1,6 +1,6 @@
 package org.bahmni.flowsheet.definition.models;
 
-import org.bahmni.flowsheet.api.Question;
+import org.bahmni.flowsheet.api.models.Question;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -25,13 +25,13 @@ public class QuestionDefinitionTest {
 
     @Before
     public void setUp()  {
-        questionDefinition = new QuestionDefinition(1, "Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
+        questionDefinition = new QuestionDefinition("Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
     }
 
 
     @Test
     public void shouldCreateQuestion() {
-        Question question = questionDefinition.createQuestion();
+        Question question = questionDefinition.createQuestion(null);
         assertNotNull(question);
     }
 

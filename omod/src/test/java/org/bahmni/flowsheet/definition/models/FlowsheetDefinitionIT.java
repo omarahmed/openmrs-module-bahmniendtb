@@ -1,8 +1,7 @@
 package org.bahmni.flowsheet.definition.models;
 
 
-import org.bahmni.flowsheet.api.Flowsheet;
-import org.bahmni.module.bahmnicore.service.BahmniProgramWorkflowService;
+import org.bahmni.flowsheet.api.models.Flowsheet;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +34,6 @@ public class FlowsheetDefinitionIT extends BaseModuleContextSensitiveTest {
 
     private ProgramWorkflowService programWorkflowService;
 
-    @Autowired
     MilestoneDefinition baselineMonth;
 
     @Before
@@ -53,8 +51,8 @@ public class FlowsheetDefinitionIT extends BaseModuleContextSensitiveTest {
 
         Concept systolicConcept = conceptService.getConceptByName(systolic);
         Concept diastolicConcept = conceptService.getConceptByName(diastolic);
-        QuestionDefinition q1 = new QuestionDefinition(1, "New Drugs", new LinkedHashSet<>(Arrays.asList(delamanid, bdq)), EndTBConstants.DRUG_QUESTION);
-        QuestionDefinition q2 = new QuestionDefinition(2, "Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolicConcept, diastolicConcept)), EndTBConstants.OBS_QUESTION);
+        QuestionDefinition q1 = new QuestionDefinition("New Drugs", new LinkedHashSet<>(Arrays.asList(delamanid, bdq)), EndTBConstants.DRUG_QUESTION);
+        QuestionDefinition q2 = new QuestionDefinition( "Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolicConcept, diastolicConcept)), EndTBConstants.OBS_QUESTION);
 
         Map<String, String> config = new HashMap<>();
         config.put("min", "0");
@@ -68,13 +66,12 @@ public class FlowsheetDefinitionIT extends BaseModuleContextSensitiveTest {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date flowsheetStartDate = simpleDateFormat.parse("2016-10-10");
 
-        FlowsheetDefinition flowsheetDefinition = new FlowsheetDefinition(flowsheetStartDate, new LinkedHashSet<>(Arrays.asList(baselineMonth)), new LinkedHashSet<>(Arrays.asList(q1,q2)));
+        FlowsheetDefinition flowsheetDefinition = new FlowsheetDefinition(flowsheetStartDate, new LinkedHashSet<>(Arrays.asList(baselineMonth)));
 
         PatientProgram patientProgram = programWorkflowService.getPatientProgram(456);
         Flowsheet flowsheet = flowsheetDefinition.createFlowsheet(patientProgram);
 
         assertEquals(1, flowsheet.getMilestones().size());
-        assertEquals(2, flowsheet.getQuestions().size());
     }
 
 }

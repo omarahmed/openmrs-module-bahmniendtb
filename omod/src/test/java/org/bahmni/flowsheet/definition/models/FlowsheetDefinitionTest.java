@@ -1,9 +1,9 @@
 package org.bahmni.flowsheet.definition.models;
 
-import org.bahmni.flowsheet.api.Flowsheet;
+import org.bahmni.flowsheet.api.models.Flowsheet;
 import org.bahmni.flowsheet.definition.HandlerProvider;
-import org.bahmni.flowsheet.api.Milestone;
-import org.bahmni.flowsheet.api.Question;
+import org.bahmni.flowsheet.api.models.Milestone;
+import org.bahmni.flowsheet.api.models.Question;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -41,7 +41,7 @@ public class FlowsheetDefinitionTest {
     @Before
     public void setup() throws ParseException {
         initMocks(this);
-        QuestionDefinition questionDefinition = new QuestionDefinition(1, "Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
+        QuestionDefinition questionDefinition = new QuestionDefinition("Blood Pressure", new LinkedHashSet<>(Arrays.asList(systolic, diastolic)), OBS_QUESTION);
 
         Map<String, String> config = new HashMap<>();
         config.put("min", "0");
@@ -58,7 +58,7 @@ public class FlowsheetDefinitionTest {
         Set<QuestionDefinition> questionDefinitions = new LinkedHashSet<>();
         questionDefinitions.add(questionDefinition);
 
-        flowsheetDefinition = new FlowsheetDefinition(date, milestoneDefinitions, questionDefinitions);
+        flowsheetDefinition = new FlowsheetDefinition(date, milestoneDefinitions);
     }
 
     @Test
@@ -66,12 +66,9 @@ public class FlowsheetDefinitionTest {
         Flowsheet flowsheet = flowsheetDefinition.createFlowsheet(new PatientProgram());
         Date date = simpleDateFormat.parse("2016-10-10");
         Set<Milestone> milestones = flowsheet.getMilestones();
-        Set<Question> questions = flowsheet.getQuestions();
-
 
         assertEquals(date, flowsheet.getStartDate());
         assertEquals(1, milestones.size());
-        assertEquals(1, questions.size());
     }
 
 }
