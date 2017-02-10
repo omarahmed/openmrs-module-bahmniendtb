@@ -1,0 +1,7 @@
+language: java
+
+branches:
+	only:
+	travis
+
+script: mvn test package
